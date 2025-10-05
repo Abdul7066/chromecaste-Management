@@ -12,7 +12,6 @@ const app = express();
 
 app.use(express.json());
 const allowedOrigins = [
-  "*",
   "https://68dff84ca63bfd072d5dbf0b--chromecaste.netlify.app",
   "https://chromecaste.netlify.app", // your production Netlify domain
   "http://localhost:3000" // for local testing
