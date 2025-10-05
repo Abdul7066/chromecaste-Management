@@ -23,7 +23,7 @@ router.get("/room/:roomId", authenticateUser, async (req, res) => {
   try {
     const { roomId } = req.params;
     const { user } = req;
-    const baseUrl = "https://chromecaste-management.onrender.com/api/my-chromecast"; // Changed to HTTP
+    const baseUrl = "https://chromecaste.netlify.app"; // Changed to HTTP
 
     // Generate a token specific to this user and room
     const tokenPayload = {
