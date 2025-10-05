@@ -11,10 +11,23 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+const allowedOrigins = [
+  "*",
+  "https://68dff84ca63bfd072d5dbf0b--chromecaste.netlify.app",
+  "https://chromecaste.netlify.app", // your production Netlify domain
+  "http://localhost:3000" // for local testing
+];
+
 app.use(
   cors({
-    origin: "*", // Allow all origins
-    credentials: true,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // if you are using cookies or auth headers
   })
 );
 
